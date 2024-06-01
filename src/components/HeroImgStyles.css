@@ -1,0 +1,83 @@
+/* Classe pour le masque couvrant toute la largeur et la hauteur de la vue */
+.mask {
+    width: 100%; /* Largeur complète */
+    height: 100vh; /* Hauteur de 100% de la hauteur de la fenêtre */
+    position: relative; /* Position relative pour les éléments enfants positionnés absolument */
+}
+
+/* Classe pour l'image d'introduction */
+.into-img {
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    background: url("../assets/footer.jpg"); /* Nouveau chemin vers l'image de fond */
+    background-size: cover; /* Ajuste la taille de l'image de fond pour couvrir l'ensemble */
+    background-position: center; /* Centre l'image de fond */
+    object-fit: cover; /* Couvre toute la zone sans déformation */
+}
+
+
+/* Pseudo-élément pour ajouter une superposition sombre */
+.mask::after {
+    content: ""; /* Contenu vide */
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    position: absolute; /* Positionnement absolu */
+    top: 0; /* Aligné en haut */
+    left: 0; /* Aligné à gauche */
+    background-color: #000; /* Couleur de fond noire */
+    opacity: 0.8; /* Opacité de 80% */
+}
+
+/* Classe pour la section héros couvrant toute la largeur et la hauteur */
+.hero {
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+}
+
+/* Classe pour le contenu de la section héros, centré */
+.hero .content {
+    position: absolute; /* Positionnement absolu */
+    transform: translate(-50%, -50%); /* Centrage horizontal et vertical */
+    top: 50%; /* Positionnement vertical à 50% */
+    left: 50%; /* Positionnement horizontal à 50% */
+    text-align: center; /* Texte centré */
+}
+
+/* Style pour le titre dans le contenu héros */
+.hero .content h1 {
+    font-size: 4rem; /* Taille de la police */
+    padding: 0.6rem 0 1.5rem; /* Espacement autour du texte */
+    overflow: hidden; /* Masque le contenu qui déborde */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    margin: 0 auto; /* Centre le texte */
+    animation: typing 3.5s steps(30, end) infinite; /* Utilise l'animation typing en boucle */
+}
+
+/* Style pour le paragraphe dans le contenu héros */
+.hero .content p {
+    font-size: 1.4rem; /* Taille de la police */
+    font-weight: 200; /* Poids de la police */
+    text-transform: uppercase; /* Met le texte en majuscules */
+}
+
+/* Style pour les boutons dans le contenu */
+.content .btn {
+    margin: 1rem 0.2rem; /* Marge autour des boutons */
+}
+
+/* Styles pour les écrans de moins de 640px de large */
+@media screen and (max-width: 640px) {
+    .hero .content h1 {
+        font-size: 3rem; /* Taille de la police réduite */
+    }
+
+    .hero .content p {
+        font-size: 1.4rem; /* Taille de la police */
+    }
+}
+
+/* Animation de saisie pour le texte */
+@keyframes typing {
+    from { width: 0 } /* Commence avec une largeur de 0 */
+    to { width: 100% } /* Termine avec une largeur de 100% */
+}

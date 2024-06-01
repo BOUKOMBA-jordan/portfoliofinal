@@ -1,0 +1,132 @@
+
+/*Pour ajouter une image d'arrière-plan à votre footer et appliquer des effets magnifiques, vous pouvez procéder comme suit en utilisant votre code CSS existant :
+
+css
+Copier le code*/
+.footer {
+    width: 100%;
+    padding: 6rem 0;
+    background-image: url('../assets/footer2.jpg'); /* Remplacez 'chemin/vers/votre/image.jpg' par le chemin vers votre image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    color: #fff; /* Couleur du texte */
+    font-family: Arial, sans-serif; /* Police de caractères */
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);
+    /* Ajoutez ici d'autres styles pour l'effet de superposition, comme des dégradés ou des filtres d'image */
+}
+
+.footer-container {
+    max-width: 1140px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+    padding: 2rem;
+    position: relative; /* Ajoutez une position relative pour contenir les éléments absolus */
+    z-index: 1; /* Assurez-vous que les éléments du footer restent au-dessus de l'arrière-plan */
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.location p {
+    line-height: 30px;
+    margin-left: 10px; /* Ajoute un espace entre l'icône et le texte */
+}
+
+/* Donner une couleur aux icônes */
+.location svg,
+.social svg {
+    fill: #fff; /* Couleur des icônes */
+}
+
+.right {
+    text-align: center; /* Centre le contenu dans la colonne droite */
+    display: flex; /* Utilisez flexbox pour aligner les éléments horizontalement */
+    flex-direction: column; /* Alignez les éléments verticalement */
+    justify-content: center; /* Centre les éléments verticalement */
+}
+
+.social {
+    margin-top: 1rem; /* Ajoute un espace au-dessus du bloc de liens sociaux */
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+}
+
+/* Ajoutez ces styles pour aligner les icônes et les textes horizontalement */
+.social a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Ajoute un espacement entre chaque lien */
+}
+
+.right .social a {
+    margin-right: 20px; /* Espacement entre les icônes */
+}
+
+
+.social a:hover {
+    transform: scale(1.2);
+}
+
+h4 {
+    font-size: 1.5rem; /* Augmente la taille du titre */
+    padding-bottom: 1rem; /* Augmente l'espace en dessous du titre */
+}
+
+p {
+    font-size: 1.2rem;
+    color: #cccccc; /* Change la couleur du texte pour le rendre plus attrayant */
+}
+
+@media screen and (max-width: 640px) {
+    .footer-container{
+        grid-template-columns:  1fr;
+    }
+}
+
+
+/* FooterStyles.css */
+.home-icon {
+    color: #07b4e9; /* Couleur pour l'icône home */
+}
+
+.phone-icon {
+    color: #ff0000; /* Couleur pour l'icône téléphone */
+}
+
+.email-icon {
+    color: #0379ff; /* Couleur pour l'icône email */
+}
+
+.facebook-icon {
+    color: #0000ff; /* Couleur pour l'icône Facebook */
+}
+
+.whatsapp-icon {
+    color: #00ff00; /* Couleur pour l'icône WhatsApp */
+}
+
+.linkedin-icon {
+    color: #00aeff; /* Couleur pour l'icône LinkedIn */
+}

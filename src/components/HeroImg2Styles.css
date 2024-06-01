@@ -1,0 +1,59 @@
+/* Conteneur pour la section d'image de héros */
+.hero-img {
+    width: 100%; /* Largeur complète */
+    background: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+    height: 60vh; /* 60% de la hauteur de la fenêtre */
+    position: relative; /* Position relative pour les éléments enfants */
+}
+
+/* Image de fond pour la section de héros */
+.hero-img::before {
+    content: "";
+    background: url("../assets/projet3.jpg"); /* Chemin vers l'image de fond */
+    background-size: cover; /* Couvre toute la zone */
+    background-position: center top; /* Centre l'image en haut */
+    height: 100%; /* Hauteur complète */
+    width: 100%; /* Largeur complète */
+    position: absolute; /* Positionnement absolu */
+    top: 0; /* Aligne en haut */
+    left: 0; /* Aligne à gauche */
+    z-index: -1; /* Place derrière les autres éléments */
+}
+
+/* Conteneur pour les éléments de titre */
+.heading {
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    display: flex; /* Mise en page flexbox */
+    flex-direction: column; /* Mise en page en colonne */
+    justify-content: center; /* Centre le contenu verticalement */
+    align-items: center; /* Centre le contenu horizontalement */
+}
+
+/* Style pour le titre principal */
+.hero-img h1 {
+    font-size: 2.4rem; /* Taille de la police */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    overflow: hidden; /* Masque le texte débordant */
+    width: 9ch; /* Limite la largeur à 20 caractères */
+    animation: typing 10s steps(30, end) infinite; /* Animation de saisie continue */
+}
+
+/* Style pour le paragraphe */
+.hero-img p {
+    font-size: 1.4rem; /* Taille de la police */
+    text-align: center; /* Centre le texte */
+}
+
+/* Animation de saisie */
+@keyframes typing {
+    from { width: 0; } /* Commence avec aucune largeur */
+    to { width: 20ch; } /* S'étend à 20 caractères */
+}
+
+/* Ajustements réactifs pour les écrans plus petits */
+@media screen and (max-width: 640px) {
+    .hero-img h1 {
+        font-size: 2rem; /* Ajuste la taille de la police */
+    }
+}
