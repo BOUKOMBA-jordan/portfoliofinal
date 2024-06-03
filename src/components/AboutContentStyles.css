@@ -2,17 +2,17 @@
     width: 100%;
     margin: 3rem 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
-    height: 100%;
+    justify-content: center;
+    align-items: flex-start; /* Alignement vertical au début */
 }
 
 .about .left {
+    flex: 1;
     text-align: center;
-    margin: auto;
+    max-width: 50%; /* Modification de la largeur à 50% */
+    margin: 1rem;
     padding: 1rem;
-    max-width: 350px;
 }
 
 .about .left p {
@@ -20,31 +20,46 @@
 }
 
 .about .right {
-    max-width: 700px;
+    flex: 1;
+    max-width: 50%; /* Modification de la largeur à 50% */
+    margin: 1rem;
 }
 
 .right .img-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    position: relative;
     text-align: center;
+    height: 400px; /* Hauteur fixe pour l'image */
+    overflow: hidden; /* Pour gérer le dépassement de l'image */
 }
 
 .right .img {
-    max-width: 90%;
+    width: auto; /* Ajustement automatique de la largeur */
+    height: auto; /* Ajustement automatique de la hauteur */
+    max-width: 100%; /* Largeur maximale de l'image */
+    max-height: 100%; /* Hauteur maximale de l'image */
+    object-fit: cover; /* Ajustement de l'image tout en conservant les proportions */
     border: 1px solid #333;
+    border-radius: 10px; /* Arrondi des bords */
+    transition: width 0.3s, height 0.3s; /* Animation de transition pour une modification fluide */
+}
+
+.right .top,
+.right .bottom {
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.7); /* Translucide */
+    padding: 1rem;
 }
 
 .right .top {
-    grid-column: 1 / span 8;
-    grid-row: 1;
-    padding-top: 20%;
-    z-index: 6;
+    top: 0;
+    left: 0;
 }
 
 .right .bottom {
-    grid-column: 4 / -1;
-    grid-row: 1;
-    z-index: 5;
+    bottom: 0;
+    right: 0;
 }

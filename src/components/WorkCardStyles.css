@@ -1,101 +1,143 @@
-/* WorkCardStyles.css */
+/* Assurez-vous que ce fichier est importé dans votre composant Work */
 
 .work-container {
+    text-align: center;
     padding: 2rem 1rem;
-}
-
-.project-heading {
+  }
+  
+  .project-heading {
     text-align: center;
     padding: 4rem 0 2rem 0;
-    color: #fff;
-}
+    color: #fff; /* Blanc */
+  }
 
-.project-container {
+  .project-title {
+    font-size: 18px; /* Taille de la police */
+    font-weight: bold; /* Police en gras */
+    margin-bottom: 10px; /* Espacement en bas */
+    color: #fff; /* Couleur du texte en blanc */
+    text-align: center; /* Centrage horizontal */
+  }
+  
+  .project-container {
     max-width: 1140px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Ajustez la taille minimale et maximale des colonnes */
     grid-gap: 40px;
     padding-bottom: 5rem;
-}
-
-.project-card {
+  }
+  
+  .project-card {
     background: #1a1919;
     padding: 1.2rem 1rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.project-card.visible {
+    border-radius: 10px; /* Augmentez le rayon de bordure */
+  }
+  
+  .project-card.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.project-card.animate-left {
+  }
+  
+  .project-card.animate-left {
     transform: translateX(-20px);
-}
-
-.project-card.animate-right {
+  }
+  
+  .project-card.animate-right {
     transform: translateX(20px);
-}
-
-.project-card.animate-bottom {
+  }
+  
+  .project-card.animate-bottom {
     transform: translateY(20px);
-}
-
-.project-card.visible.animate-left,
-.project-card.visible.animate-right,
-.project-card.visible.animate-bottom {
+  }
+  
+  .project-card.visible.animate-left,
+  .project-card.visible.animate-right,
+  .project-card.visible.animate-bottom {
     transform: translateX(0);
     transform: translateY(0);
-}
-
-.project-card img {
+  }
+  
+  .project-card img {
     width: 100%;
-    height: 200px; /* Fixe une hauteur pour uniformiser les images */
-    object-fit: cover; /* Assure que les images remplissent l'espace sans déformation */
-}
-
-.project-title {
-    color: #fff;
-    padding: 1rem 0;
-    animation: fadeInUp 1s ease-out forwards; /* Ajoutez l'animation fadeInUp */
-}
-
-.pro-details p {
-    padding-bottom: 1rem;
-    font-size: 1.1rem;
-    text-align: justify;
-    animation: fadeInUp 1s ease-out forwards; /* Ajoutez l'animation fadeInUp */
-}
-
-.pro-btns {
+    height: 150px; /* Ajustez la hauteur des images */
+    object-fit: cover;
+    border-top-left-radius: 10px; /* Ajustez le rayon de bordure pour correspondre à la carte */
+    border-top-right-radius: 10px; /* Ajustez le rayon de bordure pour correspondre à la carte */
+  }
+  
+  .project-card-content {
+    padding: 20px;
+  }
+  
+  .project-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff; /* Blanc */
+  }
+  
+  .project-card-text {
+    font-size: 14px;
+    color: #fff; /* Blanc */
+  }
+  
+  .pro-btns {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
-}
-
-.pro-btns .btn {
+  }
+  
+  .pro-btns .btn {
     padding: 0.5rem 1rem;
-}
-
-/* Définissez l'animation fadeInUp */
-@keyframes fadeInUp {
+  }
+  
+  /* Définissez l'animation fadeInUp */
+  @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
-@media screen and (max-width: 740px) {
+  }
+  
+  @media screen and (max-width: 740px) {
     .project-container {
-        max-width: 90%;
-        margin: auto;
-        grid-template-columns: 1fr;
+      max-width: 90%;
+      margin: auto;
+      grid-template-columns: 1fr;
     }
-}
+  }
+  
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-buttons button {
+    background-color: #3498db; /* Couleur de fond */
+    border: none; /* Sans bordure */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement interne */
+    margin: 5px; /* Espacement entre les boutons */
+    border-radius: 5px; /* Bords arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
+  }
+  
+  .filter-buttons button:hover {
+    background-color: #2980b9; /* Couleur de fond au survol */
+  }
+  
+  .filter-buttons button:focus {
+    outline: none; /* Pas de contour au focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+  }
+  
