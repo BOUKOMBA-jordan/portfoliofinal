@@ -14,11 +14,11 @@
     transition: 0.5s;
 }
 
-.nav-menu{
+.nav-menu {
     display: flex;
 }
 
-.nav-menu li{
+.nav-menu li {
     padding: 1rem; /* Augmentation de la séparation entre les éléments */
 }
 
@@ -75,7 +75,7 @@
 }
 
 @media screen and (max-width:1040px) {
-    .nav-menu{
+    .nav-menu {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -89,7 +89,7 @@
         transition: 0.3s;
     }
 
-    .nav-menu.active{
+    .nav-menu.active {
         left: 0;
     }
 

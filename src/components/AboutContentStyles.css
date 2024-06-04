@@ -63,3 +63,32 @@
     bottom: 0;
     right: 0;
 }
+
+/* Ajustements réactifs pour les écrans plus petits */
+@media screen and (max-width: 640px) {
+    .about {
+        flex-direction: column; /* Disposition en colonne sur les petits écrans */
+    }
+
+    .about .left,
+    .about .right {
+        max-width: 100%; /* Modifier la largeur à 100% pour occuper toute la largeur sur les petits écrans */
+        margin: 0.5rem 0; /* Réduire les marges sur les petits écrans */
+    }
+
+    .right .img-container {
+        height: auto; /* Hauteur automatique pour s'adapter au contenu sur les petits écrans */
+    }
+
+    .right .img {
+        width: 100%; /* L'image prend toute la largeur disponible sur les petits écrans */
+        height: auto; /* Hauteur automatique */
+    }
+
+    .right .top,
+    .right .bottom {
+        position: relative; /* Position relative pour éviter les chevauchements sur les petits écrans */
+        background-color: transparent; /* Fond transparent pour le texte */
+        padding: 0.5rem; /* Réduire le padding pour économiser de l'espace */
+    }
+}

@@ -1,143 +1,150 @@
-/* Assurez-vous que ce fichier est importé dans votre composant Work */
-
 .work-container {
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  
-  .project-heading {
-    text-align: center;
-    padding: 4rem 0 2rem 0;
-    color: #fff; /* Blanc */
-  }
+  text-align: center;
+  padding: 2rem 1rem;
+}
 
-  .project-title {
-    font-size: 18px; /* Taille de la police */
-    font-weight: bold; /* Police en gras */
-    margin-bottom: 10px; /* Espacement en bas */
-    color: #fff; /* Couleur du texte en blanc */
-    text-align: center; /* Centrage horizontal */
-  }
-  
-  .project-container {
-    max-width: 1140px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Ajustez la taille minimale et maximale des colonnes */
-    grid-gap: 40px;
-    padding-bottom: 5rem;
-  }
-  
-  .project-card {
-    background: #1a1919;
-    padding: 1.2rem 1rem;
+.project-heading {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+  color: #fff; /* Blanc */
+}
+
+.project-title {
+  font-size: 18px; /* Taille de la police */
+  font-weight: bold; /* Police en gras */
+  margin-bottom: 10px; /* Espacement en bas */
+  color: #fff; /* Couleur du texte en blanc */
+  text-align: center; /* Centrage horizontal */
+}
+
+.project-container {
+  max-width: 1140px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Ajustez la taille minimale et maximale des colonnes */
+  grid-gap: 40px;
+  padding-bottom: 5rem;
+}
+
+.project-card {
+  background: #1a1919;
+  padding: 1.2rem 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  border-radius: 10px; /* Augmentez le rayon de bordure */
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card.animate-left {
+  transform: translateX(-20px);
+}
+
+.project-card.animate-right {
+  transform: translateX(20px);
+}
+
+.project-card.animate-bottom {
+  transform: translateY(20px);
+}
+
+.project-card.visible.animate-left,
+.project-card.visible.animate-right,
+.project-card.visible.animate-bottom {
+  transform: translateX(0);
+  transform: translateY(0);
+}
+
+.project-card img {
+  width: 100%;
+  height: 150px; /* Ajustez la hauteur des images */
+  object-fit: cover;
+  border-top-left-radius: 10px; /* Ajustez le rayon de bordure pour correspondre à la carte */
+  border-top-right-radius: 10px; /* Ajustez le rayon de bordure pour correspondre à la carte */
+}
+
+.project-card-content {
+  padding: 20px;
+}
+
+.project-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff; /* Blanc */
+}
+
+.project-card-text {
+  font-size: 14px;
+  color: #fff; /* Blanc */
+}
+
+.pro-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.pro-btns .btn {
+  padding: 0.5rem 1rem;
+}
+
+/* Définissez l'animation fadeInUp */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    border-radius: 10px; /* Augmentez le rayon de bordure */
   }
-  
-  .project-card.visible {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .project-card.animate-left {
-    transform: translateX(-20px);
+}
+
+@media screen and (max-width: 740px) {
+  .project-container {
+    max-width: 90%;
+    margin: auto;
+    grid-template-columns: 1fr;
   }
-  
-  .project-card.animate-right {
-    transform: translateX(20px);
-  }
-  
-  .project-card.animate-bottom {
-    transform: translateY(20px);
-  }
-  
-  .project-card.visible.animate-left,
-  .project-card.visible.animate-right,
-  .project-card.visible.animate-bottom {
-    transform: translateX(0);
-    transform: translateY(0);
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: 150px; /* Ajustez la hauteur des images */
-    object-fit: cover;
-    border-top-left-radius: 10px; /* Ajustez le rayon de bordure pour correspondre à la carte */
-    border-top-right-radius: 10px; /* Ajustez le rayon de bordure pour correspondre à la carte */
-  }
-  
-  .project-card-content {
-    padding: 20px;
-  }
-  
-  .project-card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #fff; /* Blanc */
-  }
-  
-  .project-card-text {
-    font-size: 14px;
-    color: #fff; /* Blanc */
-  }
-  
-  .pro-btns {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-  }
-  
-  .pro-btns .btn {
-    padding: 0.5rem 1rem;
-  }
-  
-  /* Définissez l'animation fadeInUp */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @media screen and (max-width: 740px) {
-    .project-container {
-      max-width: 90%;
-      margin: auto;
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .filter-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Permettre aux boutons de passer à la ligne si nécessaire */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  background-color: #3498db; /* Couleur de fond */
+  border: none; /* Sans bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement interne */
+  margin: 5px; /* Espacement entre les boutons */
+  border-radius: 5px; /* Bords arrondis */
+  cursor: pointer; /* Curseur en forme de main */
+  transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
+  flex: 1; /* Les boutons prennent autant d'espace que possible */
+  max-width: 200px; /* Limiter la largeur maximale des boutons pour éviter le débordement */
+}
+
+/* Média query pour les écrans plus petits */
+@media screen and (max-width: 640px) {
   .filter-buttons button {
-    background-color: #3498db; /* Couleur de fond */
-    border: none; /* Sans bordure */
-    color: white; /* Couleur du texte */
-    padding: 10px 20px; /* Espacement interne */
-    margin: 5px; /* Espacement entre les boutons */
-    border-radius: 5px; /* Bords arrondis */
-    cursor: pointer; /* Curseur en forme de main */
-    transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
+    max-width: 100%; /* Les boutons prennent la largeur maximale disponible */
   }
-  
-  .filter-buttons button:hover {
-    background-color: #2980b9; /* Couleur de fond au survol */
-  }
-  
-  .filter-buttons button:focus {
-    outline: none; /* Pas de contour au focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
-  }
-  
+}
+
+.filter-buttons button:hover {
+  background-color: #2980b9; /* Couleur de fond au survol */
+}
+
+.filter-buttons button:focus {
+  outline: none; /* Pas de contour au focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+}

@@ -1,53 +1,41 @@
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import "./FormStyles.css";
-import React, { useState } from 'react';
-import axios from 'axios'; // Importation de la bibliothèque Axios
 
-const Form = () => {
-  const [formData, setFormData] = useState({
-    nom: "",
-    email: "",
-    objet: "",
-    message: ""
-  });
+const ContactUs = () => {
+  const form = useRef();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    sendEmail(formData);
+
+    emailjs
+      .sendForm('service_sskhkvh', 'template_ioyyv6j', form.current, '5zkGGDOCZjFSkTLG8')
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          resetForm();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
   };
 
-  const sendEmail = (data) => {
-    // Effectuer une requête POST avec Axios
-    axios.post('/send-email', data)
-      .then(response => {
-        console.log(response);
-        // Si l'e-mail est envoyé avec succès, actualiser la page
-        window.location.reload();
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  const resetForm = () => {
+    form.current.reset();
   };
 
   return (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <label>Nom</label>
-        <input type="text" name="nom" value={formData.nom} onChange={handleChange}></input>
-        <label>Email</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange}></input>
-        <label>Objet</label>
-        <input type="text" name="objet" value={formData.objet} onChange={handleChange}></input>
-        <label>Message</label>
-        <textarea rows="6" name="message" value={formData.message} onChange={handleChange} placeholder="Ici votre message"></textarea>
-        <button type="submit" className="btn">Envoyer</button>
-      </form>
-    </div>
+    <form ref={form} onSubmit={sendEmail}>
+      <label>Nom</label>
+      <input type="text" name="to_name" />
+      <label>Email</label>
+      <input type="email" name="from_name" />
+      <label>Message</label>
+      <textarea name="message" rows="6" placeholder="Ici votre message" />
+      <input type="submit" className="btn" value="Envoyer" />
+    </form>
   );
-}
+};
 
-export default Form;
+export default ContactUs;

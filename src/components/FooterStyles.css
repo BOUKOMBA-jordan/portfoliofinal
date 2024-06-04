@@ -1,8 +1,3 @@
-
-/*Pour ajouter une image d'arrière-plan à votre footer et appliquer des effets magnifiques, vous pouvez procéder comme suit en utilisant votre code CSS existant :
-
-css
-Copier le code*/
 .footer {
     width: 100%;
     padding: 6rem 0;
@@ -84,7 +79,6 @@ Copier le code*/
     margin-right: 20px; /* Espacement entre les icônes */
 }
 
-
 .social a:hover {
     transform: scale(1.2);
 }
@@ -100,33 +94,7 @@ p {
 }
 
 @media screen and (max-width: 640px) {
-    .footer-container{
-        grid-template-columns:  1fr;
+    .footer-container {
+        grid-template-columns: 1fr;
     }
-}
-
-
-/* FooterStyles.css */
-.home-icon {
-    color: #07b4e9; /* Couleur pour l'icône home */
-}
-
-.phone-icon {
-    color: #ff0000; /* Couleur pour l'icône téléphone */
-}
-
-.email-icon {
-    color: #0379ff; /* Couleur pour l'icône email */
-}
-
-.facebook-icon {
-    color: #0000ff; /* Couleur pour l'icône Facebook */
-}
-
-.whatsapp-icon {
-    color: #00ff00; /* Couleur pour l'icône WhatsApp */
-}
-
-.linkedin-icon {
-    color: #00aeff; /* Couleur pour l'icône LinkedIn */
 }

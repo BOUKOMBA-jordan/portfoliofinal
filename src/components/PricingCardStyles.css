@@ -62,7 +62,25 @@
     .card-container {
         max-width: 90%;
         margin: auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 0.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .btc {
+        font-size: 3rem;
     }
 }
