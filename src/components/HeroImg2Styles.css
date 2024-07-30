@@ -35,7 +35,7 @@
     font-size: 2.4rem; /* Taille de la police */
     white-space: nowrap; /* Empêche le retour à la ligne */
     overflow: hidden; /* Masque le texte débordant */
-    width: 9ch; /* Limite la largeur à 20 caractères */
+    width: 9ch; /* Limite la largeur à 9 caractères */
     animation: typing 10s steps(30, end) infinite; /* Animation de saisie continue */
 }
 
@@ -48,12 +48,21 @@
 /* Animation de saisie */
 @keyframes typing {
     from { width: 0; } /* Commence avec aucune largeur */
-    to { width: 20ch; } /* S'étend à 20 caractères */
+    to { width: 9ch; } /* S'étend à 9 caractères */
 }
 
 /* Ajustements réactifs pour les écrans plus petits */
 @media screen and (max-width: 640px) {
     .hero-img h1 {
         font-size: 2rem; /* Ajuste la taille de la police */
+        white-space: normal; /* Permet le retour à la ligne */
+        width: 100%; /* Largeur complète */
+        animation: typing-mobile 10s steps(30, end) infinite; /* Animation de saisie pour mobile */
     }
+}
+
+/* Animation de saisie pour mobile */
+@keyframes typing-mobile {
+    from { width: 0; } /* Commence avec aucune largeur */
+    to { width: 13ch; } /* S'étend à 10 caractères */
 }

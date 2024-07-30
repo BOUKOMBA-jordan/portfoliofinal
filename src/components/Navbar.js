@@ -1,25 +1,47 @@
-import { Link } from "react-router-dom"
-import "./NavbarStyles.css"
-
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from "react-icons/fa"
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+import "./NavbarStyles.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-
     const [click, setClick] = useState(false);
+    const [color, setColor] = useState(false);
+
     const handleClick = () => setClick(!click);
 
-    const [color, setColor] = useState(false);
     const changeColor = () => {
-        if(window.scrollY >= 1) {
+        if (window.scrollY >= 1) {
             setColor(true);
         } else {
-            setColor(false)
+            setColor(false);
         }
     };
 
-    window.addEventListener("scroll", changeColor);
+    useEffect(() => {
+        window.addEventListener("scroll", changeColor);
 
+        // Ajouter le script de Google Tag Manager
+        const script1 = document.createElement('script');
+        script1.src = "https://www.googletagmanager.com/gtag/js?id=G-DC2JEL6QX5";
+        script1.async = true;
+        document.body.appendChild(script1);
+
+        const script2 = document.createElement('script');
+        script2.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DC2JEL6QX5');
+        `;
+        document.body.appendChild(script2);
+
+        // Nettoyer les scripts lorsque le composant est démonté
+        return () => {
+            window.removeEventListener("scroll", changeColor);
+            document.body.removeChild(script1);
+            document.body.removeChild(script2);
+        };
+    }, []);
 
     return (
         <div className={color ? "header header-bg" : "header"}>
@@ -44,11 +66,9 @@ const Navbar = () => {
                 {click ? (<FaTimes size={20} style={{ color: "#fff" }} />
                 ) : (
                     <FaBars size={20} style={{ color: "#fff" }} />)}
-
-
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,9 +1,11 @@
 import Pro1 from "../assets/projet.jpg";
+import Pro7 from "../assets/stock.png";
 import Pro2 from "../assets/projet2.jpg";
-import Pro3 from "../assets/projet3.jpg";
-import Pro4 from "../assets/contact.jpg";
+import Pro8 from "../assets/fablab.png";
+import Pro3 from "../assets/folio.png";
+import Pro4 from "../assets/quiz.png";
 import Pro5 from "../assets/a propos (2).jpg";
-import Pro6 from "../assets/footer1.jpg";
+import Pro6 from "../assets/voiture.png";
 
 const ProjectCardData = [
     {
@@ -12,6 +14,13 @@ const ProjectCardData = [
         text: "Dans l'optique de valoriser l'agriculture locale et de réduire la distance entre les producteurs et les consommateurs.",
         view: "",
         categorie: "e-commerce"
+    },
+    {
+        imgsrc: Pro7,
+        title: "Gestion de Stock",
+        text: "Dans l'optique de simplifier la gestion des stocks de son entreprise",
+        view: "",
+        categorie: "gestion-stock"
     },
     {
         imgsrc: Pro2,
@@ -47,6 +56,13 @@ const ProjectCardData = [
         text: "Offrir à chacun la possibilité de trouver la voiture de ses rêves, que ce soit pour l'achat ou la location.",
         view: "",
         categorie: "location"
+    },
+    {
+        imgsrc: Pro8,
+        title: "Site vitrine Fablab Moanda",
+        text: "Offrir à chacun la possibilité d'accéder à cet univers technologique.",
+        view: "",
+        categorie: "site-vitrine"
     }
 ];
 export default ProjectCardData;

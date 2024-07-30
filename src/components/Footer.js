@@ -1,8 +1,31 @@
+import React, { useEffect } from 'react';
 import "./FooterStyles.css";
-import React from 'react';
 import { FaFacebook, FaHome, FaLinkedin, FaMailBulk, FaPhone, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
+    useEffect(() => {
+        // Ajouter le script de Google Tag Manager
+        const script1 = document.createElement('script');
+        script1.src = "https://www.googletagmanager.com/gtag/js?id=G-DC2JEL6QX5";
+        script1.async = true;
+        document.body.appendChild(script1);
+
+        const script2 = document.createElement('script');
+        script2.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DC2JEL6QX5');
+        `;
+        document.body.appendChild(script2);
+
+        // Nettoyer les scripts lorsque le composant est démonté
+        return () => {
+            document.body.removeChild(script1);
+            document.body.removeChild(script2);
+        };
+    }, []);
+
     return (
         <div className="footer">
             <div className="background"></div>
@@ -35,17 +58,16 @@ const Footer = () => {
 
                 <div className="right">
                     <h4>À propos de l'entreprise</h4>
-                    <p>Je suis BOUKOMBA Jordan, PDG de la future JB Tech. Bien plus qu'un service, nous incarnons votre vision.</p>
+                    <p>Je suis Jordan BOUKOMBA, PDG de la future JB Tech. Bien plus qu'un service, nous incarnons votre vision.</p>
                     <div className="social">
-                        <a href="https://www.facebook.com/messages" target="_blank" rel="noopener noreferrer"><FaFacebook size={30} className="facebook-icon" /></a>
-                        <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={30} className="whatsapp-icon" /></a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin size={30} className="linkedin-icon" /></a>
+                        <a href="https://www.fb.com/l/6lp1kJRRR" target="_blank" rel="noopener noreferrer"><FaFacebook size={30} className="facebook-icon" /></a>
+                        <a href="https://wa.me/24176218187" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={30} className="whatsapp-icon" /></a>
+                        <a href="https://www.linkedin.com/in/jordan-talla-250009284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><FaLinkedin size={30} className="linkedin-icon" /></a>
                     </div>
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 
 export default Footer;

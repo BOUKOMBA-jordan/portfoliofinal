@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./WorkCardStyles.css";
 import WorkCard from "./WorkCard";
 import ProjectCardData from "./workCardData";  // Assurez-vous que le nom du fichier et son chemin sont corrects
@@ -20,15 +20,40 @@ const Work = () => {
     setFilter(nouveauFiltre);
   };
 
+  useEffect(() => {
+    // Ajouter le script de Google Tag Manager
+    const script1 = document.createElement('script');
+    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-DC2JEL6QX5";
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DC2JEL6QX5');
+    `;
+    document.body.appendChild(script2);
+
+    // Nettoyer les scripts lorsque le composant est démonté
+    return () => {
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+    };
+  }, []);
+
   return (
     <div className="work-container">
       <h1 className="project-heading">Projets</h1>
       <div className="filter-buttons">
         <button onClick={() => handleFilterChange('tous')}>Tous</button>
         <button onClick={() => handleFilterChange('e-commerce')}>E-commerce</button>
+        <button onClick={() => handleFilterChange('gestion-stock')}>Gestion-stock</button>
         <button onClick={() => handleFilterChange('immobilier')}>Immobilier</button>
         <button onClick={() => handleFilterChange('portfolio')}>Portfolio</button>
         <button onClick={() => handleFilterChange('éducation')}>Éducation</button>
+        <button onClick={() => handleFilterChange('site-vitrine')}>Site Vitrine</button>
         <button onClick={() => handleFilterChange('culture')}>Culture</button>
         <button onClick={() => handleFilterChange('location')}>Location</button>
       </div>
